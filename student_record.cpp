@@ -59,7 +59,8 @@ void tep::stuadd(){
     getline(cin,Papaname);
     cout<<"Adsress";
     getline(cin,address);
-    
+
+    // Open the file in output mode, appending to existing content
     fel.open("janamkundli.txt" , ios::out | ios::app);
     fel<<roll_no<<" * "<<name<<" * "<<Papaname<<" * "<<address<<" * "<<endl;
     fel.close();
@@ -68,8 +69,9 @@ void tep::stuadd(){
 }
 
 void tep::dispstu(){
+    // Open the file in input mode
     fel.open("janamkundli.txt", ios::in);
-    if(!fel){
+    if(!fel){ // Check if the file exists or was successfully opened
         cout<<"NO record found ____";
         return;
     }
@@ -85,5 +87,39 @@ void tep::dispstu(){
         cout<<"adddress: "<<address<<endl;
     }
 
+    fel.close();
+}
+
+void tep::searchstu(){
+    cout<<"Enter student Roll no: ";
+    getline(cin,search);
+
+    fel.open("janamkundli.txt" , ios::in);
+    if(!fel){
+        cout<<"No record found______";
+        return;
+    }
+
+    bool found = false;
+    while(getline(fel , roll_no ,'*') 
+    && getline(fel, name ,'*') 
+    && getline(fel, Papaname ,'*')
+    && getline(fel, address ,'*')){
+        if(roll_no==search){
+            cout<<"Student roll no: "<<roll_no<<endl;
+            cout<<"student name: "<<name<<endl;
+            cout<<"fathers name: "<<Papaname<<endl;
+            cout<<"adddress: "<<address<<endl;
+            
+            found = true;
+        }
+
+        
+    }
+
+    if(!found){
+        cout<<"NO record found_-";
+        return;
+    }
     fel.close();
 }
