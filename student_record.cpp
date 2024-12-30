@@ -22,6 +22,30 @@ int main(){
     cout<<"4- exit"<<endl;
     cout<<"----------------------"<<endl;
     cin>>Choice;
+
+    switch (Choice){
+    case '1':
+        cin.ignore();
+        obj.stuadd();
+        break;
+    
+    case '2':
+        cin.ignore();
+        obj.dispstu();
+        break;
+    
+    case '3':
+        cin.ignore();
+        obj.searchstu();
+        break;
+
+    case '4':
+        return 0;
+
+    default:
+        cout<<"invalid choice";
+        break;
+    }
     
     return 0;
 }
