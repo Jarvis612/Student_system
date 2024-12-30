@@ -49,3 +49,20 @@ int main(){
     
     return 0;
 }
+
+void tep::stuadd(){
+    cout<<"Enter student roll no: ";
+    getline(cin,roll_no);
+    cout<<"Name of student: ";
+    getline(cin,name);
+    cout<<"Enter father name: ";
+    getline(cin,Papaname);
+    cout<<"Adsress";
+    getline(cin,address);
+    
+    fel.open("janamkundli.txt" , ios::out | ios::app);
+    fel<<roll_no<<" * "<<name<<" * "<<Papaname<<" * "<<address<<" * "<<endl;
+    fel.close();
+
+    cout<<"record added successfully!!!!!!!!";
+}
