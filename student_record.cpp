@@ -66,3 +66,24 @@ void tep::stuadd(){
 
     cout<<"record added successfully!!!!!!!!";
 }
+
+void tep::dispstu(){
+    fel.open("janamkundli.txt", ios::in);
+    if(!fel){
+        cout<<"NO record found ____";
+        return;
+    }
+
+    while(getline(fel , roll_no ,'*') 
+    && getline(fel, name ,'*') 
+    && getline(fel, Papaname ,'*')
+    && getline(fel, address ,'*')){
+
+        cout<<"Student roll no: "<<roll_no<<endl;
+        cout<<"student name: "<<name<<endl;
+        cout<<"fathers name: "<<Papaname<<endl;
+        cout<<"adddress: "<<address<<endl;
+    }
+
+    fel.close();
+}
